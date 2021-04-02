@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Simple setInterval clock</title>
+    <style>
+      p {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="clock"></p>
+    <button class="start">Start</button>
+    <button class="stop">Stop</button>
+    <button class="reset">Reset</button>
+    <p class="screen"></p>
+    <script>
+      function displayTime() {
+        let date = new Date();
+        let time = date.toLocaleTimeString();
+        document.querySelector('.clock').textContent = time;
+      }
+
+      displayTime();
+      const createClock = setInterval(displayTime, 1000);
+      ///-------------
+      const start = document.querySelector('.start');
+      const stop = document.querySelector('.stop');
+      const reset = document.querySelector('.reset');
+      const screen = document.querySelector('.screen');
+
+      let count = 0;
+      let min = 0;
+      let hour = 0;
+    //   function startInt() {
+    //        let set = setInterval(function(){
+    //         screen.textContent = `0${hour}:0${min}:0${count++}`;
+    //         if (count === 10){
+    //             count = 0;
+    //             min++;
+    //         }
+    //       }, 1000);
+    //       return set;
+    //   }
+    //   function stopInt(){
+    //     clearInterval(set);
+    //   }
+        
+      start.onclick = 
+       set = setInterval(function(){
+            screen.textContent = `0${hour}:0${min}:0${count++}`;
+            if (count === 10){
+                count = 0;
+                min++;
+            }
+          }, 1000);
+    
+
+      stop.onclick = function (){
+          screen.textContent = 'pause';
+      }
+      reset.onclick = clearInterval(set);
+      
+
+    </script>
+  </body>
+</html>
